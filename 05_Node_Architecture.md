@@ -30,13 +30,13 @@
    - These requests are handled directly by the **event loop** without involving the thread pool.
    - Once the request is processed, the response is sent back immediately.
    
-   ![Non-blocking request flow](./images/non_blocking_architecture.png)
+   ![Non-blocking request flow](./non-blocking.jpg)
 
 2. **Blocking requests** (e.g., reading a file from disk or interacting with a database):
    - These requests require more time to process, so they are sent to the **thread pool**.
    - A thread from the pool is assigned to handle the task, and once the task is complete, the response is sent back to the event loop, which then sends the response to the client.
 
-   ![Blocking request flow](./images/blocking_architecture.png)
+   ![Blocking request flow](./blocking.webp)
 
 ---
 
@@ -51,3 +51,4 @@
 ### Why Non-blocking is Better
 - **Non-blocking** operations allow Node.js to process more requests efficiently because the event loop is not waiting for blocking tasks to complete. It immediately moves on to the next request while the blocking task (if any) is handled by the thread pool.
 
+![Blocking request flow](./gen.webp)
